@@ -1,36 +1,100 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Personal Portfolio Website
+
+A modern, production-ready personal portfolio website built with Next.js 15, TypeScript, and Tailwind CSS.
+
+## Features
+
+- 🚀 Next.js 15 with App Router
+- 💻 TypeScript for type safety
+- 🎨 Tailwind CSS for styling
+- 🧱 shadcn/ui components
+- 🎭 Light/Dark mode
+- 📝 MDX blog support
+- 🎯 SEO optimized
+- 📱 Responsive design
+- 🎨 Framer Motion animations
+- 🧪 ESLint + Prettier setup
+
+## Project Structure
+
+```
+src/
+├── app/                    # App router pages
+│   ├── page.tsx           # Home page
+│   ├── work/              # Work experience
+│   ├── projects/          # Projects showcase
+│   └── blog/              # Blog section
+├── components/            # React components
+│   ├── ui/               # shadcn/ui components
+│   └── layout/           # Layout components
+├── lib/                  # Utilities
+└── content/             # Blog posts and content
+    └── blog/            # MDX blog posts
+```
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd personal-website
+   ```
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+2. Install dependencies and start the development server:
+   ```bash
+   ./dev.sh
+   ```
+
+   Or manually:
+   ```bash
+   npm install
+   npm run dev
+   ```
+
+3. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Customization
+
+1. Update personal information:
+   - Edit `src/app/page.tsx` for the home page content
+   - Modify `src/app/work/page.tsx` for work experience
+   - Update `src/app/projects/page.tsx` for project showcase
+
+2. Add blog posts:
+   - Create new `.mdx` files in `src/content/blog/`
+   - Include frontmatter with title, date, description, and tags
+
+3. Styling:
+   - Global styles in `src/app/globals.css`
+   - Tailwind configuration in `tailwind.config.ts`
+   - Theme configuration in `src/components/theme-provider.tsx`
+
+## Blog Post Format
+
+Create new blog posts in `src/content/blog/` with the following frontmatter:
+
+```mdx
+---
+title: Post Title
+date: '2025-10-23'
+description: Brief description of the post
+tags:
+  - Tag1
+  - Tag2
+published: true
+---
+
+# Content here...
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Deployment
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The site is optimized for deployment on [Vercel](https://vercel.com):
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Push your code to GitHub
+2. Import the repository on Vercel
+3. Deploy
 
-## Learn More
+## License
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT

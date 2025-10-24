@@ -1,0 +1,72 @@
+---
+title: Getting Started with Next.js 15
+date: '2025-10-23'
+description: Discover the latest features and improvements in Next.js 15 and how to get started with server components, app router, and more.
+tags:
+  - Next.js
+  - React
+  - Web Development
+published: true
+---
+
+# Getting Started with Next.js 15
+
+Next.js 15 brings significant improvements and new features to the React framework. In this post, we'll explore the key features and how to get started with them.
+
+## What's New in Next.js 15
+
+### Server Components
+Next.js 15 embraces React Server Components as the default. This means better performance and smaller bundle sizes out of the box.
+
+### Improved App Router
+The App Router has been refined with better error handling and enhanced features for nested layouts.
+
+```tsx
+// Example of a nested layout
+export default function BlogLayout({ children }) {
+  return (
+    <div className="blog-layout">
+      <aside>Blog Sidebar</aside>
+      <main>{children}</main>
+    </div>
+  )
+}
+```
+
+### Enhanced Data Fetching
+Server Components make data fetching more intuitive:
+
+```tsx
+async function BlogPost() {
+  const post = await getPost()
+  return <article>{post.content}</article>
+}
+```
+
+## Getting Started
+
+1. Create a new Next.js project:
+   ```bash
+   npx create-next-app@latest my-app
+   ```
+
+2. Choose the latest features:
+   - TypeScript
+   - App Router
+   - Tailwind CSS
+   - ESLint
+
+3. Start developing:
+   ```bash
+   cd my-app
+   npm run dev
+   ```
+
+## Best Practices
+
+- Use Server Components by default
+- Only use Client Components when needed (interactivity, browser APIs)
+- Leverage the new data fetching patterns
+- Implement proper error boundaries
+
+Next.js 15 makes building React applications more enjoyable than ever. Happy coding!
