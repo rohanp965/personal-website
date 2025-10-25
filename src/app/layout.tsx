@@ -16,9 +16,11 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 })
 
+import { siteConfig } from '@/config/site'
+
 export const metadata: Metadata = {
-  title: 'Your Name - Portfolio',
-  description: 'Personal portfolio and blog showcasing my work and thoughts',
+  title: siteConfig.title,
+  description: siteConfig.description,
   icons: {
     icon: '/favicon.ico',
   },

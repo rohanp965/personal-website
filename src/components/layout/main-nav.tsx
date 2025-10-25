@@ -12,12 +12,9 @@ import {
 } from '@/components/ui/navigation-menu'
 import { ModeToggle } from '@/components/layout/mode-toggle'
 
-const routes = [
-  { href: '/', label: 'Home' },
-  { href: '/work', label: 'Work' },
-  { href: '/projects', label: 'Projects' },
-  { href: '/blog', label: 'Blog' },
-]
+import { siteConfig } from '@/config/site'
+
+const routes = siteConfig.nav.links
 
 export function MainNav() {
   return (
