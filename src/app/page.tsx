@@ -23,6 +23,7 @@ export default function Home() {
           <p className="max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8">
             {siteConfig.bio}
           </p>
+          {/* Buttons hidden until Projects and Blog are ready
           <div className="flex gap-4">
             <Button asChild>
               <Link href="/projects">View Projects</Link>
@@ -31,6 +32,7 @@ export default function Home() {
               <Link href="/blog">Read Blog</Link>
             </Button>
           </div>
+          */}
         </div>
       </section>
 

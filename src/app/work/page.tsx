@@ -1,19 +1,55 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import Link from 'next/link'
 
-const experiences = [
+interface Product {
+  name: string
+  url?: string
+  bullets: string[]
+}
+
+interface Experience {
+  company: string
+  title: string
+  period: string
+  description?: string
+  products?: Product[]
+  achievements?: string[]
+}
+
+const experiences: Experience[] = [
   {
     company: 'Wolters Kluwer',
     title: 'Data Scientist',
     period: 'Feb 2019 - Present',
-    description:
-      'Lead development of machine learning models and data pipelines. Implemented new features, improved performance, and mentored junior developers.',
+    products: [
+      {
+        name: 'NILs AI Assist',
+        url: 'https://www.wolterskluwer.com/en/solutions/onesumx-for-compliance-program-management/nils-ai-assist',
+        bullets: [
+          'Designed a production-scale RAG system for 600K+ documents, engineering semantic search with full provenance tracking and stateful conversation management accelerating regulatory compliance workflows by 70%.',
+          'Established comprehensive RAG evaluation framework by curating gold-standard Q&A datasets, implementing user feedback loops, and driving iterative model refinement which achieved 80%+ accuracy across retrieval precision and answer quality metrics.',
+        ],
+      },
+      {
+        name: 'iLien Borrower Analytics',
+        url: 'https://www.wolterskluwer.com/en/solutions/lien-solutions/ucc-filing-and-public-records-search/ilien-borrower-analytics',
+        bullets: [
+          'Architected an AWS pipeline (S3, Textract, DynamoDB, Lambda, OpenSearch) to parse millions of PDFs. Automated classification, search and extraction to generate business insights, reducing staff workload by 50%.',
+          'Engineered multi-tiered search algorithm combining heuristics, priority scoring, and business rules for document retrieval, outperforming baseline keyword search and cutting manual review cycles by 40%.',
+        ],
+      },
+      {
+        name: 'OneSumX for Regulatory Change Management',
+        url: 'https://www.wolterskluwer.com/en/solutions/onesumx-for-compliance-program-management/onesumx-for-regulatory-change-management',
+        bullets: [
+          'Led an NLP-based content pre-screening pipeline using NER, dependency and constituency parsing to extract actionable regulatory language. Filtered law citations by 48%, significantly reducing manual review burdens.',
+          'Engineered a cross-jurisdictional clustering pipeline, reducing manual consolidation effort by 44% (125 to 70 hours) and enabling scalable reuse of regulatory requirements across multiple jurisdictions.',
+        ],
+      },
+    ],
     achievements: [
-      'Increased prescreening efficiency 60% by deploying a classification model which predicts whether a given sentence is relevant or not with business context using BERT, PyTorch, Transformers(Hugging Face), Docker and FastAPI.',
-      'Increased prescreening efficiency a further 15% by deploying a text similarity searching model which helps in finding relevant sentences in prescreened texts using Word Embeddings (sentence transformers), Docker and FastAPI.',
-      'Deployed an end-to-end pipeline on AWS using S3, Textract, DynamoDB, Lambda Functions and Open Search to parse millions of PDF documents helping in classifying , searching and extracting key information to generate business insights and revenue.',
-      'Formulated a POC in collaboration with a new client which included reusing tagging capabilities and resulted in doubling the transactional volume in an existing product and increase in revenue.',
-      'Collaborated in the innovation journey for AI/ML in action by deploying enterprise level generic ML/NLP capabilities which enabled reusability of code and a reduced time to market.',
-      'Mentored 2 batches of Data Science - Summer Interns by helping create a project roadmap, provide technical and non-technical assistance and oversaw their recruitment and interview process.'
+      'Designed and executed 10+ POCs across 3 business units in collaboration with cross-functional stakeholders and product managers, deploying enterprise-level ML/NLP capabilities that enabled code reusability and reduced average time to market.',
+      'Mentored 2 batches of Data Science - Summer Interns by defining a project roadmap, providing technical and non-technical assistance and also oversaw their recruitment and interview process.',
     ],
   },
   {
@@ -24,20 +60,19 @@ const experiences = [
       'Assisted in the development of machine learning models and data pipelines. Collaborated with senior data scientists to implement new features and improve existing ones.',
     achievements: [
       'Reduced 45% of implied labor for an internal product by deploying a production grade Clustering API which clusters similar meaning sentences to act as a client deliverable using Word Embeddings (sentence_transformers), Scikit-learn, Docker and FastAPI.',
-      'Accelerated authoring efficiency by 15% for each requirement by highlighting key information needed by authors using a production grade Clause Extraction API built on NLP methodologies such as named entity recognition, sentence splitting, dependency parsing and constituency parsing which extracts relevant entities, dollar amounts, percentages and action verbs and uses Spacy, Stanford CoreNLP, Allen NLP, Docker and FastAPI.'
+      'Accelerated authoring efficiency by 15% for each requirement by highlighting key information needed by authors using a production grade Clause Extraction API built on NLP methodologies such as named entity recognition, sentence splitting, dependency parsing and constituency parsing which extracts relevant entities, dollar amounts, percentages and action verbs and uses Spacy, Stanford CoreNLP, Allen NLP, Docker and FastAPI.',
     ],
   },
   {
     company: 'Dun & Bradstreet',
-    title: 'Part-time Student Consultant',
+    title: 'Part-Time Student - Analytics Consultant',
     period: 'Jan 2018 - Apr 2018',
     description:
-      'Collaborated on a NLP project with other Columbia University graduate students to classify behavior of topics in news articles by using topic modeling algorithms like LDA.',
+      'Led NLP-based student research project to classify and model topic behavior in 50k+ news articles using topic modeling algorithm (LDA), analyzing lifecycle patterns and time-based dependencies to forecast trend trajectories.',
     achievements: [
-      'Investigated the life cycle of these topics, their time based dependencies to analyze highs and lows in the future and analyze their impact on events and small businesses by matching with their relevant D-U-N-S number.'
+      'Delivered actionable business intelligence by mapping identified topical trends to 10k+ D&B\'s proprietary D-U-N-S numbers across 8 industries, quantifying impact on small businesses with the resulting methodology formally adopted into D&B\'s internal analysis pipeline.',
     ],
-  }
-  // Add more experiences here
+  },
 ]
 
 export default function WorkPage() {
@@ -61,18 +96,50 @@ export default function WorkPage() {
                 </CardDescription>
               </div>
             </CardHeader>
-            <CardContent className="space-y-4">
-              <p>{exp.description}</p>
-              <div>
-                <h4 className="font-semibold">Key Achievements:</h4>
-                <ul className="list-inside list-disc space-y-1 pt-2">
-                  {exp.achievements.map((achievement, i) => (
-                    <li key={i} className="text-muted-foreground">
-                      {achievement}
-                    </li>
+            <CardContent className="space-y-4 text-left">
+              {exp.description && <p>{exp.description}</p>}
+              {exp.products && (
+                <div className="space-y-4">
+                  {exp.products.map((product, pi) => (
+                    <div key={pi}>
+                      <h4 className="font-semibold">
+                        {product.url ? (
+                          <Link
+                            href={product.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="underline underline-offset-4 hover:text-primary"
+                          >
+                            {product.name}
+                          </Link>
+                        ) : (
+                          product.name
+                        )}
+                      </h4>
+                      <ul className="list-inside list-disc space-y-1 pt-1">
+                        {product.bullets.map((bullet, bi) => (
+                          <li key={bi} className="text-muted-foreground">
+                            {bullet}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   ))}
-                </ul>
-              </div>
+                </div>
+              )}
+              {exp.achievements && (
+                <div>
+                  {exp.products && <h4 className="font-semibold">General</h4>}
+                  {!exp.products && <h4 className="font-semibold">Key Achievements:</h4>}
+                  <ul className="list-inside list-disc space-y-1 pt-2">
+                    {exp.achievements.map((achievement, i) => (
+                      <li key={i} className="text-muted-foreground">
+                        {achievement}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </CardContent>
           </Card>
         ))}

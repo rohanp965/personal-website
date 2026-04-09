@@ -27,8 +27,8 @@ export const siteConfig: SiteConfig = {
   name: 'Rohan Pimprikar',
   title: 'Rohan Pimprikar',
   description: 'Personal portfolio and blog showcasing my work and thoughts',
-  role: 'Software Engineer',
-  bio: 'Experienced Data Scientist with a demonstrated history of working in the information services industry. Skilled in Natural Language Processing, Machine Learning and Python.Strong engineering professional with a Master of Science - MS focused in Operations Research from Columbia University in the City of New York.',
+  role: 'Data Scientist',
+  bio: 'Data Scientist with 7+ years building production-scale ML and GenAI systems in the information services industry. Specializing in RAG pipelines, NLP, and cloud-native deployments on AWS and Azure. M.S. Operations Research, Columbia University.',
   social: {
     github: {
       title: 'GitHub',
@@ -50,8 +50,8 @@ export const siteConfig: SiteConfig = {
     links: [
       { href: '/', label: 'Home' },
       { href: '/work', label: 'Work' },
-      { href: '/projects', label: 'Projects' },
-      { href: '/blog', label: 'Blog' },
+      // { href: '/projects', label: 'Projects' },  // hidden until ready
+      // { href: '/blog', label: 'Blog' },           // hidden until ready
     ],
   },
   seo: {
