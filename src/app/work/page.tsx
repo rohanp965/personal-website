@@ -57,7 +57,7 @@ const experiences: Experience[] = [
     title: 'Data Scientist Intern',
     period: 'Jun 2018 - Dec 2018',
     description:
-      'Assisted in the development of machine learning models and data pipelines. Collaborated with senior data scientists to implement new features and improve existing ones.',
+      'Assisted in development of machine learning models and data pipelines. Collaborated with senior data scientists to implement new features and improve existing ones.',
     achievements: [
       'Reduced 45% of implied labor for an internal product by deploying a production grade Clustering API which clusters similar meaning sentences to act as a client deliverable using Word Embeddings (sentence_transformers), Scikit-learn, Docker and FastAPI.',
       'Accelerated authoring efficiency by 15% for each requirement by highlighting key information needed by authors using a production grade Clause Extraction API built on NLP methodologies such as named entity recognition, sentence splitting, dependency parsing and constituency parsing which extracts relevant entities, dollar amounts, percentages and action verbs and uses Spacy, Stanford CoreNLP, Allen NLP, Docker and FastAPI.',
